@@ -108,4 +108,13 @@ class Producto
      */
     private $categorias;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Pedido", mappedBy="productos")
+     * @var Pedido[]|Collection
+     */
+    private $pedidos;
+
+
+
+
 }

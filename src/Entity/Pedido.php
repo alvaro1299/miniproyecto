@@ -109,4 +109,10 @@ class Pedido
      * @var Usuario
      */
     private $cliente;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Producto", inversedBy="pedidos")
+     * @var Producto[]|Collection
+     */
+    private $productos;
 }
