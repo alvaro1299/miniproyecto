@@ -53,5 +53,10 @@ class Categoria
         $this->nombre = $nombre;
         return $this;
     }
+    /**
+     * @ORM\ManyToMany(targetEntity="Producto", inversedBy="categorias")
+     * @var Producto[]|Collection
+     */
+    private $productos;
 
 }

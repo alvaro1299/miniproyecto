@@ -102,4 +102,11 @@ class Producto
         return $this;
     }
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Categoria", mappedBy="productos")
+     * @var Categoria[]|Collection
+     */
+    private $categorias;
+
+
 }
