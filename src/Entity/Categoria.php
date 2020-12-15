@@ -59,4 +59,22 @@ class Categoria
      */
     private $productos;
 
+    /**
+     * @return Producto[]|Collection
+     */
+    public function getProductos()
+    {
+        return $this->productos;
+    }
+
+    /**
+     * @param Producto[]|Collection $productos
+     * @return Categoria
+     */
+    public function setProductos($productos)
+    {
+        $this->productos = $productos;
+        return $this;
+    }
+
 }

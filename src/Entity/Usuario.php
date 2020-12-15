@@ -103,6 +103,24 @@ class Usuario
     }
 
     /**
+     * @return Pedido[]|Collection
+     */
+    public function getPedidos()
+    {
+        return $this->pedidos;
+    }
+
+    /**
+     * @param Pedido[]|Collection $pedidos
+     * @return Usuario
+     */
+    public function setPedidos($pedidos)
+    {
+        $this->pedidos = $pedidos;
+        return $this;
+    }
+
+    /**
      * @ORM\OneToMany(targetEntity="Pedido", mappedBy="cliente")
      * @var Pedido[]|Collection
      */

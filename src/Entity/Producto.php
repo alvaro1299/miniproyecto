@@ -114,6 +114,42 @@ class Producto
      */
     private $pedidos;
 
+    /**
+     * @return Categoria[]|Collection
+     */
+    public function getCategorias()
+    {
+        return $this->categorias;
+    }
+
+    /**
+     * @param Categoria[]|Collection $categorias
+     * @return Producto
+     */
+    public function setCategorias($categorias)
+    {
+        $this->categorias = $categorias;
+        return $this;
+    }
+
+    /**
+     * @return Pedido[]|Collection
+     */
+    public function getPedidos()
+    {
+        return $this->pedidos;
+    }
+
+    /**
+     * @param Pedido[]|Collection $pedidos
+     * @return Producto
+     */
+    public function setPedidos($pedidos)
+    {
+        $this->pedidos = $pedidos;
+        return $this;
+    }
+
 
 
 

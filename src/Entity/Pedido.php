@@ -115,4 +115,40 @@ class Pedido
      * @var Producto[]|Collection
      */
     private $productos;
+
+    /**
+     * @return Usuario
+     */
+    public function getCliente(): Usuario
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * @param Usuario $cliente
+     * @return Pedido
+     */
+    public function setCliente(Usuario $cliente): Pedido
+    {
+        $this->cliente = $cliente;
+        return $this;
+    }
+
+    /**
+     * @return Producto[]|Collection
+     */
+    public function getProductos()
+    {
+        return $this->productos;
+    }
+
+    /**
+     * @param Producto[]|Collection $productos
+     * @return Pedido
+     */
+    public function setProductos($productos)
+    {
+        $this->productos = $productos;
+        return $this;
+    }
 }
