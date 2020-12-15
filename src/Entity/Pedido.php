@@ -103,4 +103,10 @@ class Pedido
         return $this;
     }
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="pedidos")
+     * @ORM\JoinColumn(nullable=false)
+     * @var Usuario
+     */
+    private $cliente;
 }

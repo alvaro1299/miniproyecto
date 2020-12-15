@@ -101,4 +101,10 @@ class Usuario
         $this->dni = $dni;
         return $this;
     }
+
+    /**
+     * @ORM\OneToMany(targetEntity="Pedido", mappedBy="cliente")
+     * @var Pedido[]|Collection
+     */
+    private $pedidos;
 }

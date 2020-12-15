@@ -108,5 +108,4 @@ class Producto
      */
     private $categorias;
 
-
 }
