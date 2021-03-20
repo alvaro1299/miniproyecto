@@ -6,6 +6,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -24,18 +25,23 @@ class Producto
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2, max="40")
      * @var string
      */
     private $nombre;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank()
      * @var float
      */
     private $precio;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2, max="40")
      * @var string
      */
     private $marca;
