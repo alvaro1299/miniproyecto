@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %} Pedidos {% endblock title %}
+{% block body %}
+    <h1>Pedidos del cliente {{ usuario.nombre }}</h1>
+<div class="tabla">
+    <table border="1px" class="table table=hover table=striped table=bordered table=sm w=50" id="workers">
+        <tr>
+            <td>Nombre</td>
+            <td>Cerrado</td>
+            <td>Fecha Pedido</td>
+        </tr>
+        <tbody>
+        {% for p in pedidos %}
+        <tr>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.cerrado ? 'Sí' : 'No'}}</td>
+            <td>{{ p.fechaPedido | date('d/m/Y')}}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>No hay Pedidos.</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('clientes_listar') }}">Volver al listado de libros</a>
+</div>
+{% endblock body %}

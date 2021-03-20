@@ -40,6 +40,13 @@ class Producto
      */
     private $marca;
 
+
+    public function __construct()
+    {
+        $this->categorias = new ArrayCollection();
+        $this->pedidos = new ArrayCollection();
+    }
+
     /**
      * @return int
      */
@@ -51,7 +58,7 @@ class Producto
     /**
      * @return string
      */
-    public function getNombre(): string
+    public function getNombre(): ?string
     {
         return $this->nombre;
     }
@@ -69,7 +76,7 @@ class Producto
     /**
      * @return float
      */
-    public function getPrecio(): float
+    public function getPrecio(): ?float
     {
         return $this->precio;
     }
@@ -87,7 +94,7 @@ class Producto
     /**
      * @return string
      */
-    public function getMarca(): string
+    public function getMarca(): ?string
     {
         return $this->marca;
     }
@@ -149,8 +156,5 @@ class Producto
         $this->pedidos = $pedidos;
         return $this;
     }
-
-
-
 
 }

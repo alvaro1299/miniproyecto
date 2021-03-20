@@ -42,6 +42,15 @@ class Pedido
     private $fechaPedido;
 
     /**
+     * Pedido constructor.
+     * @param Producto[]|Collection $productos
+     */
+    public function __construct($productos)
+    {
+        $this->productos = $productos;
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -86,9 +95,9 @@ class Pedido
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
-    public function getFechaPedido(): date
+    public function getFechaPedido(): ?\Datetime
     {
         return $this->fechaPedido;
     }

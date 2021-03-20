@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %} Clientes {% endblock title %}
+{% block body %}
+    <h1>Listado de clientes</h1>
+    <div class="tabla">
+    <table border="1px" class="table table=hover table=striped table=bordered table=sm w=50" id="workers">
+        <tr>
+            <td>ID</td>
+            <td>Nombre</td>
+            <td>Apellidos</td>
+            <td>DNI</td>
+        </tr>
+        <tbody>
+        {% for c in usuarios %}
+        <tr>
+            <td><a href="{{ path('pedidos_con_id', {'id': c.id}) }}">{{ c.id }}</a></td>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.apellidos }}</td>
+            <td>{{ c.dni }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>No hay Clientes.</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <div>
+        <br>
+        <td><a href="{{ path('productos_listar') }}">LISTADO DE PRODUCTOS</a></td>
+    </div>
+{% endblock body %}

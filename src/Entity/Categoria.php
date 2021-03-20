@@ -29,11 +29,24 @@ class Categoria
     private $nombre;
 
     /**
+     * Categoria constructor.
+     * @param Producto[]|Collection $productos
+     */
+    public function __construct($productos)
+    {
+        $this->productos = $productos;
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function __toString(){
+        return $this->nombre;
     }
 
     /**

@@ -6,13 +6,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="usuario")
  */
 
-class Usuario
+class Usuario implements UserInterface
 {
     /**
      * @ORM\Id
@@ -41,6 +42,15 @@ class Usuario
     private $dni;
 
     /**
+     * Usuario constructor.
+     * @param Pedido[]|Collection $pedidos
+     */
+    public function __construct()
+    {
+        $this->pedidos = new ArrayCollection();
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -54,6 +64,30 @@ class Usuario
     public function getNombre(): string
     {
         return $this->nombre;
+    }
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $codigo;
+
+    /**
+     * @return string
+     */
+    public function getCodigo(): string
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * @param string $codigo
+     * @return Usuario
+     */
+    public function setCodigo(string $codigo): Usuario
+    {
+        $this->codigo = $codigo;
+        return $this;
     }
 
     /**
@@ -125,4 +159,31 @@ class Usuario
      * @var Pedido[]|Collection
      */
     private $pedidos;
+
+    public function getRoles()
+    {
+        $roles = ['ROLE_USER'];
+
+        return $roles;
+    }
+
+    public function getPassword()
+    {
+        return $this->codigo;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function getUsername()
+    {
+        return $this->getId();
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
 }

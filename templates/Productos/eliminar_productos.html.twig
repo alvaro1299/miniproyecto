@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Eliminar producto</h1>
+    <p>¿Seguro que deseas eliminar a {{ producto.nombre }}?</p>
+
+    <form method="post">
+        <button type="submit" name="confirmar">Sí, eliminar</button>
+    </form>
+{% endblock %}
+
