@@ -22,7 +22,7 @@
             <td>{{ p.marca }}</td>
             <td>
             {% for c in p.categorias %}
-                {{ p.categorias[c] }}
+                {{ c }}
             {% endfor %}
             </td>
             <td><button><a href="{{ path('producto_modificar', {'id': p.id}) }}">Editar</a></button></td>

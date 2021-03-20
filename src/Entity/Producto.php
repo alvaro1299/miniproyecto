@@ -110,7 +110,7 @@ class Producto
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="Categoria", mappedBy="productos")
+     * @ORM\ManyToMany(targetEntity="Categoria", inversedBy="productos")
      * @var Categoria[]|Collection
      */
     private $categorias;

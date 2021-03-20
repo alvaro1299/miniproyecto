@@ -67,7 +67,7 @@ class Categoria
         return $this;
     }
     /**
-     * @ORM\ManyToMany(targetEntity="Producto", inversedBy="categorias")
+     * @ORM\ManyToMany(targetEntity="Producto", mappedBy="categorias")
      * @var Producto[]|Collection
      */
     private $productos;
