@@ -160,10 +160,67 @@ class Usuario implements UserInterface
      */
     private $pedidos;
 
+
+
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $administrador;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $dependiente;
+
+    /**
+     * @return bool
+     */
+    public function isAdministrador(): bool
+    {
+        return $this->administrador;
+    }
+
+    /**
+     * @param bool $administrador
+     * @return Usuario
+     */
+    public function setEstudiante(bool $administrador): Usuario
+    {
+        $this->administrador = $administrador;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDependiente(): bool
+    {
+        return $this->dependiente;
+    }
+
+    /**
+     * @param bool $dependiente
+     * @return Usuario
+     */
+    public function setDependiente(bool $dependiente): Usuario
+    {
+        $this->dependiente = $dependiente;
+        return $this;
+    }
+
     public function getRoles()
     {
         $roles = ['ROLE_USER'];
 
+        if ($this->isAdministrador()) {
+            $roles[] = 'ROLE_ADMIN';
+        }
+        if ($this->isDependiente()) {
+            $roles[] = 'ROLE_DEPENDIENTE';
+        }
         return $roles;
     }
 

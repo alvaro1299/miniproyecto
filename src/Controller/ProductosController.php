@@ -17,6 +17,7 @@ class ProductosController extends AbstractController
      * @Route("/productos/eliminar/{id}", name="producto_eliminar")
      */
     public function eliminar(Request $request, Producto $producto) : Response {
+        $this->denyAccessUnlessGranted('ROLE_DEPENDIENTE');
         if ($request->request->has('confirmar')) {
             $this->getDoctrine()->getManager()->remove($producto);
             $this->getDoctrine()->getManager()->flush();
@@ -34,6 +35,7 @@ class ProductosController extends AbstractController
      **/
     public function nuevoProducto(Request $request, RepositorioProducto $repositorioProducto) : Response
     {
+        $this->denyAccessUnlessGranted('ROLE_DEPENDIENTE');
         $producto = $repositorioProducto->nuevo();
         $form = $this->createForm(ProductoNuevoType::class, $producto);
         $form->handleRequest($request);

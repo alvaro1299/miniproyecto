@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+        {% for mensaje in app.flashes('error') %}
+            <div class="alert alert-danger alert-dismissible">
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+        {% for mensaje in app.flashes('exito') %}
+            <div class="alert alert-success alert-dismissible">
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+        {% block body %}{% endblock %}
+    </body>
+</html>
